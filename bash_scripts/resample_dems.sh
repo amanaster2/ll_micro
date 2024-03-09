@@ -1,13 +1,12 @@
 #! /bin/bash
-
-ref=./k13/wsyr1/k13_20201109_lidar_coreg.tif
-src=./k13/wsyr1/k13_20201109_lidar.asc
+ref=/home/adalvis/github/ll_micro/k13/wsyr1/k13_20201109_lidar_coreg.tif
+src=/home/adalvis/github/ll_micro/k13/wsyr1/k13_20201109_lidar.asc
 gdalwarp -dstnodata -9999 -overwrite -tr 0.25 0.25 -of AAIGrid $ref $src
 
 for date in 20201109 20210208 20210406 20210513 ; 
     do 
-        ref=./k13/wsyr1/k13_${date}_sfm_coreg.tif
-        src=./k13/wsyr1/k13_${date}_sfm.asc
+        ref=/home/adalvis/github/ll_micro/k13/wsyr1/k13_${date}_sfm_coreg.tif
+        src=/home/adalvis/github/ll_micro/k13/wsyr1/k13_${date}_sfm.asc
         echo gdalwarp -dstnodata -9999 -overwrite -tr 0.25 0.25 -of AAIGrid $ref $src
         gdalwarp -dstnodata -9999 -overwrite -tr 0.25 0.25 -of AAIGrid $ref $src
     done
